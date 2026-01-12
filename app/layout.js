@@ -5,11 +5,6 @@ const poppins = Poppins({
   variable: "--font-poppins",
   weight: ["500"],
 })
-const googleSans = Google_Sans({
-  variable: "--font-googleSans",
-  weight: ["500"],
-})
-
 
 export const metadata = {
   title: "Create Next App",
@@ -20,7 +15,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${googleSans.variable}`}
+        className={`${poppins.variable}`}
       >
         {children}
       </body>

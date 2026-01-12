@@ -7,7 +7,7 @@ const poppins = Poppins({
 })
 const breeSerif = Bree_Serif({
   variable: "--font-breeSerif",
-  weight: ["500"],
+  weight: ["400"],
 })
 
 export const metadata = {

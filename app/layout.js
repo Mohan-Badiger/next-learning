@@ -1,8 +1,12 @@
-import { Poppins, Google_Sans } from "next/font/google";
+import { Poppins, Bree_Serif } from "next/font/google";
 import "./globals.css";
 
 const poppins = Poppins({
   variable: "--font-poppins",
+  weight: ["500"],
+})
+const breeSerif = Bree_Serif({
+  variable: "--font-breeSerif",
   weight: ["500"],
 })
 
@@ -15,7 +19,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable}`}
+        className={`${breeSerif.variable}`}
       >
         {children}
       </body>

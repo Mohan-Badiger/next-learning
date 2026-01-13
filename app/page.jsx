@@ -8,6 +8,8 @@ export default function Home() {
         <h1>Mohan</h1>
         <h1>Badiger</h1>
         <h1>Hello</h1>
+
+        <h2>updating for github</h2>
       </main>
     </div>
   );

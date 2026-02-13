@@ -1,51 +1,57 @@
+"use client";
+
 import Link from "next/link";
 
-const Footer = () => {
+export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300 font-sans">
-      <div className="max-w-6xl mx-auto px-4 py-12">
+    <footer className="bg-black text-zinc-50 border-t border-zinc-800 px-6 md:px-12 py-10">
+      
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         
-        <div className="grid md:grid-cols-3 gap-8">
-          
-          {/* Brand */}
-          <div>
-            <h2 className="text-xl font-bold text-white mb-3">MyApp</h2>
-            <p className="text-sm text-gray-400">
-              Building modern web experiences with performance and style.
-            </p>
-          </div>
-
-          {/* Links */}
-          <div>
-            <h3 className="text-white font-semibold mb-3">Quick Links</h3>
-            <div className="flex flex-col gap-2 text-sm">
-              <Link href="/" className="hover:text-white">Home</Link>
-              <Link href="/about" className="hover:text-white">About</Link>
-              <Link href="/services" className="hover:text-white">Services</Link>
-              <Link href="/contact" className="hover:text-white">Contact</Link>
-            </div>
-          </div>
-
-          {/* Social */}
-          <div>
-            <h3 className="text-white font-semibold mb-3">Follow Us</h3>
-            <div className="flex gap-4 text-sm">
-              <a href="#" className="hover:text-white">Twitter</a>
-              <a href="#" className="hover:text-white">LinkedIn</a>
-              <a href="#" className="hover:text-white">GitHub</a>
-            </div>
-          </div>
-
+        {/* 🔳 Brand / Copyright */}
+        <div>
+          <p className="text-sm font-medium tracking-tight">
+            Auronix © 2026
+          </p>
+          <p className="text-xs text-zinc-500 mt-1 uppercase tracking-wide">
+            Crafting Premium Digital Experiences
+          </p>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-gray-800 mt-10 pt-6 text-sm text-center text-gray-500">
-          © {new Date().getFullYear()} MyApp. All rights reserved.
-        </div>
-
+        {/* 🧭 Navigation */}
+        <nav className="flex flex-wrap gap-4 text-xs uppercase tracking-wide">
+          <Link
+            href="/"
+            className="text-zinc-500 hover:text-zinc-50 transition-colors"
+          >
+            Home
+          </Link>
+          <Link
+            href="/about"
+            className="text-zinc-500 hover:text-zinc-50 transition-colors"
+          >
+            About
+          </Link>
+          <Link
+            href="/services"
+            className="text-zinc-500 hover:text-zinc-50 transition-colors"
+          >
+            Services
+          </Link>
+          <Link
+            href="/pricing"
+            className="text-zinc-500 hover:text-zinc-50 transition-colors"
+          >
+            Pricing
+          </Link>
+          <Link
+            href="/contact"
+            className="text-zinc-500 hover:text-zinc-50 transition-colors"
+          >
+            Contact
+          </Link>
+        </nav>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

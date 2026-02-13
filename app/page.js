@@ -1,8 +1,9 @@
-import Contact from '@/components/Contact'
 import CTA from '@/components/CTA'
-import Features from '@/components/Features'
 import Hero from '@/components/Hero'
+import PortfolioPreview from '@/components/PortfolioPreview'
+import ServicesSnapshot from '@/components/ServicesSnapshot'
 import Testimonials from '@/components/Testimonials'
+import WhyChooseSection from '@/components/WhyChooseSection'
 import React from 'react'
 
 const Home = () => {
@@ -10,10 +11,11 @@ const Home = () => {
   return (
     <div >
       <Hero/>
-      <Features/>
+      <ServicesSnapshot/>
+      <WhyChooseSection/>
+      <PortfolioPreview/>
       <Testimonials/>
       <CTA/>
-      <Contact/>
     </div>
   )
 }

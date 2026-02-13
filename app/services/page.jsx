@@ -1,195 +1,151 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
+
+const services = [
+  {
+    number: "01",
+    title: "Web Design & Development",
+    description:
+      "End-to-end digital experiences crafted with precision, performance, and visual authority.",
+    points: [
+      "UI/UX Systems",
+      "Responsive Layouts",
+      "Next.js / React Engineering",
+      "Scalable MERN Solutions",
+      "REST API Integration",
+      "Authentication & Dashboards",
+    ],
+  },
+  {
+    number: "02",
+    title: "Hosting & Deployment",
+    description:
+      "Secure, reliable, and optimized infrastructure ensuring speed, uptime, and stability.",
+    points: [
+      "Domain & Hosting Setup",
+      "Cloud Deployment",
+      "SSL & Security Hardening",
+      "Performance Optimization",
+    ],
+  },
+  {
+    number: "03",
+    title: "Maintenance & Support",
+    description:
+      "Continuous updates, monitoring, and improvements to keep your platform flawless.",
+    points: [
+      "Content Updates",
+      "Bug Fixes",
+      "Performance Monitoring",
+      "Technical Assistance",
+    ],
+  },
+];
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 120,
+      damping: 22,
+    },
+  },
+};
+
 export default function ServicesPage() {
-  const services = [
-    {
-      title: "Web Development",
-      desc: "Fast, scalable, and modern websites built with Next.js and React for maximum performance.",
-      icon: "💻",
-    },
-    {
-      title: "UI/UX Design",
-      desc: "Elegant, intuitive, and user-focused interfaces designed for exceptional experiences.",
-      icon: "🎨",
-    },
-    {
-      title: "SEO Optimization",
-      desc: "Boost visibility, traffic, and rankings with proven search optimization strategies.",
-      icon: "📈",
-    },
-    {
-      title: "App Development",
-      desc: "Robust web & mobile applications crafted for reliability and seamless usability.",
-      icon: "📱",
-    },
-    {
-      title: "Maintenance & Support",
-      desc: "Continuous updates, monitoring, and improvements to keep everything running smoothly.",
-      icon: "🛠️",
-    },
-    {
-      title: "Consulting",
-      desc: "Expert technical guidance to help you choose the right architecture and tools.",
-      icon: "💡",
-    },
-  ];
-
   return (
-    <div className="bg-linear-to-b from-gray-50 to-white">
+    <section className="relative bg-black text-zinc-50 min-h-screen px-6 md:px-12 py-20 overflow-hidden">
+      
+      {/* 🎞 Grain Overlay */}
+      <div
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        style={{
+          backgroundImage: "url('/noise.png')",
+          backgroundRepeat: "repeat",
+        }}
+      />
 
-      {/* ✅ Hero Section */}
-      <section className="bg-linear-to-br from-indigo-950 to-slate-950 text-white">
-        <div className="max-w-6xl mx-auto px-4 py-28 text-center">
-          <h1 className="text-4xl md:text-5xl font-heading font-semibold mb-6">
+      {/* 🔳 Header */}
+      <div className="relative z-10 mb-16">
+        <div className="flex items-center gap-6">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold uppercase tracking-tighter">
             Our Services
           </h1>
-          <p className="text-lg text-indigo-100 max-w-2xl mx-auto">
-            Modern digital solutions crafted with elegance, performance, and precision.
-          </p>
-        </div>
-      </section>
-
-      {/* ✅ Services Grid */}
-      <section className="max-w-6xl mx-auto px-4 py-24">
-        <div className="text-center mb-14">
-          <h2 className="text-3xl font-heading font-semibold">
-            What We Offer
-          </h2>
-          <p className="text-gray-600 mt-2">
-            High-quality services designed for growth & success
-          </p>
+          <div className="h-px flex-1 bg-zinc-800" />
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, i) => (
-            <div
-              key={i}
-              className="group bg-white p-6 rounded-sm shadow-sm hover:shadow-lg transition"
-            >
-              <div className="text-3xl mb-4 group-hover:scale-110 transition">
-                {service.icon}
-              </div>
-              <h3 className="text-lg font-semibold mb-2">
-                {service.title}
-              </h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                {service.desc}
-              </p>
+        <p className="mt-4 text-zinc-500 max-w-2xl">
+          High-performance digital solutions designed with a sharp focus on
+          clarity, scalability, and business impact.
+        </p>
+      </div>
+
+      {/* 🧱 Grid */}
+      <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-zinc-800">
+        {services.map((service) => (
+          <motion.div
+            key={service.number}
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            className="relative group bg-black border border-zinc-800 p-8 rounded-none hover:bg-zinc-900 transition-colors duration-150"
+          >
+            {/* 🔢 Number */}
+            <div className="font-mono text-zinc-500 text-sm mb-6">
+              // {service.number}
             </div>
-          ))}
-        </div>
-      </section>
 
-      {/* ✅ Process Section */}
-      <section className="bg-white py-24">
-        <div className="max-w-5xl mx-auto px-4">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl font-heading font-semibold">
-              How We Work
-            </h2>
-            <p className="text-gray-600 mt-2">
-              A refined and effective workflow
+            {/* 🔲 Minimal Square Icon */}
+            <div className="mb-6 w-10 h-10 border border-zinc-800 flex items-center justify-center">
+              <div className="w-4 h-4 bg-zinc-50" />
+            </div>
+
+            {/* 🧾 Title */}
+            <h3 className="text-xl font-semibold uppercase tracking-tight">
+              {service.title}
+            </h3>
+
+            {/* ✨ Description */}
+            <p className="mt-3 text-sm text-zinc-500 leading-relaxed">
+              {service.description}
             </p>
-          </div>
 
-          <div className="grid md:grid-cols-3 gap-10">
-            {[
-              {
-                step: "1. Planning",
-                desc: "We understand your goals, audience, and requirements.",
-                icon: "📝",
-              },
-              {
-                step: "2. Execution",
-                desc: "Designing and developing with precision & quality.",
-                icon: "🎯",
-              },
-              {
-                step: "3. Launch",
-                desc: "Testing, deployment, and continuous improvements.",
-                icon: "🚀",
-              },
-            ].map((item, i) => (
-              <div key={i} className="text-center">
-                <div className="text-3xl mb-3">{item.icon}</div>
-                <h3 className="font-semibold mb-2">{item.step}</h3>
-                <p className="text-sm text-gray-600">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            {/* ✔ Points */}
+            <ul className="mt-6 space-y-2">
+              {service.points.map((point) => (
+                <li key={point} className="text-xs text-zinc-400 tracking-wide">
+                  ✔ {point}
+                </li>
+              ))}
+            </ul>
 
-      {/* ✅ Pricing Section */}
-      <section className="py-24 bg-linear-to-b from-gray-50 to-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl font-heading font-bold">
-              Pricing
-            </h2>
-            <p className="text-gray-600 mt-2">
-              Flexible plans tailored to your needs
-            </p>
-          </div>
+            {/* ➜ Learn More */}
+            <div className="mt-8 flex items-center text-sm uppercase tracking-wide">
+              <span className="text-zinc-300 group-hover:text-zinc-50 transition-colors">
+                Learn More
+              </span>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            
-            {/* Starter */}
-            <div className="bg-white p-6 rounded-sm shadow-sm hover:shadow-md transition">
-              <h3 className="font-semibold text-lg mb-2">Starter</h3>
-              <p className="text-3xl font-bold mb-4">₹9,999</p>
-              <p className="text-sm text-gray-600 mb-6">
-                Perfect for small businesses & portfolio websites.
-              </p>
-              <button className="w-full bg-indigo-950 text-white py-2 rounded hover:bg-indigo-950">
-                Choose Plan
-              </button>
+              <motion.span
+                className="ml-2"
+                initial={{ x: 0 }}
+                whileHover={{ x: 4 }}
+                transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              >
+                <ArrowUpRight size={16} />
+              </motion.span>
             </div>
 
-            {/* Professional (Highlighted) */}
-            <div className="bg-white p-6 rounded-sm shadow-lg border border-indigo-200 relative">
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-indigo-950 text-white text-xs px-3 py-1 rounded-full">
-                Most Popular
-              </div>
-              <h3 className="font-semibold text-lg mb-2">Professional</h3>
-              <p className="text-3xl font-bold mb-4">₹24,999</p>
-              <p className="text-sm text-gray-600 mb-6">
-                Ideal for growing businesses & dynamic web apps.
-              </p>
-              <button className="w-full bg-indigo-950 text-white py-2 rounded hover:bg-indigo-950">
-                Choose Plan
-              </button>
-            </div>
-
-            {/* Enterprise */}
-            <div className="bg-white p-6 rounded-sm shadow-sm hover:shadow-md transition">
-              <h3 className="font-semibold text-lg mb-2">Enterprise</h3>
-              <p className="text-3xl font-bold mb-4">Custom</p>
-              <p className="text-sm text-gray-600 mb-6">
-                Tailored solutions for large-scale & complex projects.
-              </p>
-              <button className="w-full bg-indigo-950 text-white py-2 rounded hover:bg-indigo-950">
-                Contact Us
-              </button>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ✅ CTA Section */}
-      <section className="bg-linear-to-r from-indigo-950 to-purple-950 text-white py-24">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-heading font-bold mb-4">
-            Let’s Build Something Great ✨
-          </h2>
-          <p className="text-indigo-100 mb-8">
-            Have a project in mind? Let’s create something extraordinary together.
-          </p>
-          <button className="bg-white text-indigo-950 px-6 py-3 rounded font-semibold hover:bg-gray-100 transition">
-            Get in Touch
-          </button>
-        </div>
-      </section>
-
-    </div>
+            {/* ⚡ Sharp Border Glow */}
+            <div className="absolute inset-0 border border-transparent group-hover:border-zinc-50 transition-all duration-150 pointer-events-none" />
+          </motion.div>
+        ))}
+      </div>
+    </section>
   );
 }
